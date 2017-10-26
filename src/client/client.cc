@@ -417,6 +417,7 @@ Connection::connect(Address addr)
 
     }
 
+    ::freeaddrinfo(addrs);
     if (sfd < 0)
         throw std::runtime_error("Failed to connect");
 }
