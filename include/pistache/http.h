@@ -118,7 +118,17 @@ public:
     // @Todo: try to remove the need for friend-ness here
     friend class Client;
 
-    Request(const Request& other) = default;
+    Request(const Request& other)
+    {
+        body_ = other.body_;
+        code_ = other.code_;
+        cookies_ = other.cookies_;
+        headers_ = other.headers_;
+        method_ = other.method_;
+        query_ = other.query_;
+        resource_ = other.resource_;
+        version_ = other.version_;
+    }
     Request& operator=(const Request& other) = default;
 
     Request(Request&& other) = default;
